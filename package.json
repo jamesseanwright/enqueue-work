@@ -1,0 +1,33 @@
+{
+  "name": "fiber-queue",
+  "version": "0.0.1",
+  "description": "A Node.js child process worker library",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "e2e-test": "mocha test/e2e/e2eTests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesseanwright/fiber-queue.git"
+  },
+  "keywords": [
+    "fiber",
+    "queue",
+    "child",
+    "process",
+    "child_process",
+    "worker",
+    "async"
+  ],
+  "author": "James Wright <james@jamesswright.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesseanwright/fiber-queue/issues"
+  },
+  "homepage": "https://github.com/jamesseanwright/fiber-queue#readme",
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "4.0.1"
+  }
+}
