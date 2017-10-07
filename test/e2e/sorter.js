@@ -7,14 +7,15 @@ const onError = err => {
     process.exit(1);
 };
 
-const onFileRead = buffer => {
+const onFileRead = (buffer, requestId) => {
     const numbers = JSON.parse(buffer);
     const result = sort(numbers);
-    process.send({ result });
+
+    process.send({ result, requestId });
 };
 
 const sort = numbers => [].concat(numbers).sort();
 
-process.on('message', ({ path }) => {
-    fs.readFile(path, (err, buffer) => err ? onError(err) : onFileRead(buffer));
+process.on('message', ({ filename, requestId }) => {
+    fs.readFile(filename, (err, buffer) => err ? onError(err) : onFileRead(buffer, requestId));
 });
