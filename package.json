@@ -4,6 +4,7 @@
   "description": "A Node.js child process worker library",
   "main": "lib/index.js",
   "scripts": {
+    "benchmark": "node test/benchmarking/captureBenchmarks",
     "test": "npm run unit-test && npm run e2e-test",
     "unit-test": "mocha lib/**/*.test.js",
     "e2e-test": "mocha test/e2e/e2eTests.js"

@@ -6,13 +6,13 @@ const { expect } = require('chai');
 const { createQueue } = require('../../lib');
 
 describe('the end-to-end tests', function () {
-    const filename = path.join(__dirname, 'numbers.json');
+    const filename = path.join(__dirname, '..', 'sorter', 'numbers.json');
     const numbers = JSON.parse(fs.readFileSync(filename));
     const sortedNumbers = [].concat(numbers).sort();
     let queue;
 
     beforeEach(function () {
-        queue = createQueue(path.join(__dirname, 'sorter.js'), 4);
+        queue = createQueue(path.join(__dirname, '..', 'sorter', 'index.js'), 4);
     });
 
     afterEach(function () {
