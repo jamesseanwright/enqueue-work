@@ -9,29 +9,41 @@ const BENCHMARK_COUNT = MAX_WORKER_COUNT - (MIN_WORKER_COUNT - 1);
 const SORTER_PATH = path.join(__dirname, '..', 'sorter', 'index.js');
 const NUMBERS_PATH = path.join(__dirname, '..', 'sorter', 'numbers-large.json');
 
+const getWorkerText = workerCount => `worker${workerCount > 1 ? 's' : ''}`;
+
 const runBenchmark = async workerCount => { // TODO: rerun a few times and take average
+    console.log(`Testing with ${workerCount + 1} ${getWorkerText(workerCount + 1)}...`);
     const queue = createQueue(SORTER_PATH, workerCount + 1);
     const time = process.hrtime();
     await queue.schedule({ filename: NUMBERS_PATH });
-    const [resultSeconds] = process.hrtime(time);
+    const [seconds, nanoseconds] = process.hrtime(time);
 
     queue.kill();
 
-    return { workerCount, resultSeconds };
+    return { workerCount, seconds, nanoseconds };
 };
 
-const runPromisesSequentially = promises => (
-    promises.reduce((prev, cur) => prev.then(() => cur), Promise.resolve())
-);
+const sequentialRangeAsync = async (length, predicate) => {
+    const results = Array(length);
 
-const forRangeAsync = async (length, predicate) => (
-    await runPromisesSequentially(Array(length).fill(null).map((_, i) => predicate(i)))
-);
+    for (let i = 0; i < length; i++) {
+        results[i] = await predicate(i);
+    }
 
-const printResults = results => console.log('***** done', results);
+    return results;
+};
+
+const printResults = results => (
+    console.log(
+        '\n\nResults\n',
+        results.map(
+            res => `${getWorkerText(res.workerCount + 1)}: ${res.seconds}.${res.nanoseconds} secs`
+        ).join('\n')
+    )
+);
 
 (async () => {
     console.log('Capturing benchmarks...');
-    const results = await forRangeAsync(BENCHMARK_COUNT, runBenchmark);
+    const results = await sequentialRangeAsync(BENCHMARK_COUNT, runBenchmark);
     printResults(results);
 })();
