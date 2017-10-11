@@ -36,6 +36,7 @@ const sequentialRangeAsync = async (length, predicate) => {
 const printResults = results => (
     console.log(
         '\n\nResults\n',
+
         results.map(
             res => `${getWorkerText(res.workerCount)}: ${res.seconds}.${res.nanoseconds} secs`
         ).join('\n')
