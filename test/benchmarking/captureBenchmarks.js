@@ -7,7 +7,7 @@ const MIN_WORKER_COUNT = 1;
 const MAX_WORKER_COUNT = 8;
 
 const BENCHMARK_COUNT = MAX_WORKER_COUNT - (MIN_WORKER_COUNT - 1);
-const BENCHMARK_ITERATION_COUNT = 10;
+const BENCHMARK_ITERATION_COUNT = 1;
 const SORTER_PATH = path.join(__dirname, '..', 'sorter', 'index.js');
 const NUMBERS_PATH = path.join(__dirname, '..', 'sorter', 'numbers-large.json');
 
