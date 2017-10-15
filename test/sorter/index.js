@@ -10,7 +10,6 @@ const onError = err => {
 const onFileRead = (buffer, requestId) => {
     const numbers = JSON.parse(buffer);
     const result = sort(numbers);
-    console.log('******* sorted!');
     process.send({ result, requestId });
 };
 
