@@ -13,7 +13,7 @@ const NUMBERS_PATH = path.join(__dirname, '..', 'sorter', 'numbers-large.json');
 
 const getWorkerText = workerCount => `${workerCount} worker${workerCount > 1 ? 's' : ''}`;
 
-const runBenchmark = async workerCount => { // TODO: run with constant payloads
+const runBenchmark = async workerCount => {
     console.log(`Testing with ${getWorkerText(workerCount)}...`);
 
     const queue = createQueue(SORTER_PATH, workerCount);
