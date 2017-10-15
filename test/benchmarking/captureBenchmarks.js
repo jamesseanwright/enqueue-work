@@ -15,9 +15,12 @@ const getWorkerText = workerCount => `${workerCount} worker${workerCount > 1 ? '
 
 const runBenchmark = async workerCount => { // TODO: run with constant payloads
     console.log(`Testing with ${getWorkerText(workerCount)}...`);
+
     const queue = createQueue(SORTER_PATH, workerCount);
     const time = process.hrtime();
+
     await runParallel(BENCHMARK_ITERATION_COUNT, async() => await queue.schedule({ filename: NUMBERS_PATH }));
+
     const [seconds, nanoseconds] = process.hrtime(time);
 
     queue.kill();
@@ -39,15 +42,13 @@ const runSequentially = async (length, predicate) => {
     return results;
 };
 
-const printResults = results => (
-    console.log(
-        '\n\nResults\n',
+const printResults = results => {
+    console.log('\n\nResults');
 
-        results.map(
-            res => `${getWorkerText(res.workerCount)}: ${res.seconds}.${res.nanoseconds} secs`
-        ).join('\n')
-    )
-);
+    console.log(results.map(
+        res => `${getWorkerText(res.workerCount)}: ${res.seconds}.${res.nanoseconds} secs`
+    ).join('\n'));
+};
 
 (async () => {
     console.log('Capturing benchmarks...');
