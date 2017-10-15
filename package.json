@@ -1,5 +1,5 @@
 {
-  "name": "fiber-queue",
+  "name": "enqueue-work",
   "version": "0.0.1",
   "description": "A Node.js child process worker library",
   "main": "lib/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesseanwright/fiber-queue.git"
+    "url": "git+https://github.com/jamesseanwright/enqueue-work.git"
   },
   "keywords": [
     "fiber",
@@ -25,9 +25,9 @@
   "author": "James Wright <james@jamesswright.co.uk>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jamesseanwright/fiber-queue/issues"
+    "url": "https://github.com/jamesseanwright/enqueue-work/issues"
   },
-  "homepage": "https://github.com/jamesseanwright/fiber-queue#readme",
+  "homepage": "https://github.com/jamesseanwright/enqueue-work#readme",
   "devDependencies": {
     "chai": "4.1.2",
     "mocha": "4.0.1",
