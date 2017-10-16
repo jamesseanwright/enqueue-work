@@ -4,6 +4,7 @@
   "description": "A Node.js child process worker library",
   "main": "lib/index.js",
   "scripts": {
+    "react-ssr": "node test/benchmarking/react/server",
     "benchmark": "node test/benchmarking/captureBenchmarks",
     "test": "npm run unit-test && npm run e2e-test",
     "unit-test": "mocha lib/**/*.test.js",
@@ -31,6 +32,8 @@
   "devDependencies": {
     "chai": "4.1.2",
     "mocha": "4.0.1",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
     "sinon": "4.0.1"
   }
 }
