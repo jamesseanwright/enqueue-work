@@ -6,7 +6,7 @@ const { createQueue } = require('../../../lib');
 
 const PORT = 8001;
 const RENDERER_PATH = path.join(__dirname, 'renderer.js');
-const WORKER_COUNT = 2;
+const WORKER_COUNT = 3;
 
 const queue = createQueue(RENDERER_PATH, WORKER_COUNT);
 
@@ -37,7 +37,7 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    const { appMarkup } = await queue.schedule({});
+    const { appMarkup } = await queue.schedule();
     const markup = renderHtml(appMarkup);
 
     res.writeHead(200, {
