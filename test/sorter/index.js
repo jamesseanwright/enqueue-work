@@ -3,8 +3,7 @@
 const fs = require('fs');
 
 const onError = err => {
-    console.err(err);
-    process.exit(1);
+    throw err;
 };
 
 const onFileRead = (buffer, requestId) => {
