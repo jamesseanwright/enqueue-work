@@ -6,7 +6,7 @@
   "scripts": {
     "react-ssr": "node test/benchmarking/react/server",
     "benchmark": "node test/benchmarking/captureBenchmarks",
-    "test": "npm run unit-test && npm run e2e-test",
+    "test": "eslint {lib,test} && npm run unit-test && npm run e2e-test",
     "unit-test": "mocha lib/**/*.test.js",
     "e2e-test": "mocha test/e2e/e2eTests.js"
   },
@@ -30,7 +30,9 @@
   },
   "homepage": "https://github.com/jamesseanwright/enqueue-work#readme",
   "devDependencies": {
+    "babel-eslint": "8.0.1",
     "chai": "4.1.2",
+    "eslint": "4.9.0",
     "mocha": "4.0.1",
     "react": "16.0.0",
     "react-dom": "16.0.0",
