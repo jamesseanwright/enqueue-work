@@ -12,7 +12,7 @@ const queue = createQueue(RENDERER_PATH, WORKER_COUNT);
 
 const notFound = res => {
     res.writeHead(404, {
-        'Content-Type': 'text/plain'
+        'Content-Type': 'text/plain',
     });
 
     res.end('Not found');
@@ -41,10 +41,10 @@ const server = http.createServer(async (req, res) => {
     const markup = renderHtml(appMarkup);
 
     res.writeHead(200, {
-        'Content-Type': 'text/html'
+        'Content-Type': 'text/html',
     });
 
     res.end(markup);
 });
 
-server.listen(PORT, () => console.log('Listening on', PORT));
+server.listen(PORT, () => console.log('Listening on', PORT)); // eslint-disable-line no-console
