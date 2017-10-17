@@ -6,7 +6,7 @@ const { createQueue } = require('../../../lib');
 
 const PORT = 8001;
 const RENDERER_PATH = path.join(__dirname, 'renderer.js');
-const WORKER_COUNT = 3;
+const WORKER_COUNT = 4;
 
 const queue = createQueue(RENDERER_PATH, WORKER_COUNT);
 
@@ -26,7 +26,10 @@ const renderHtml = appMarkup => `
             <title>My React App</title>
         </head>
         <body>
-            ${appMarkup}
+            <main>
+                <h1>My Server-Rendered React App!</h1>
+                ${appMarkup}
+            </main>
         </body>
     </html>
 `;
