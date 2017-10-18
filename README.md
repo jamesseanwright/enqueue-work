@@ -20,7 +20,9 @@ const { result } = await queue.schedule({ filename: 'numbers-large.json' });
 
 ## Benchmarks
 
-### `Array.prototype.sort` (merge sort in V8 when n > 10)
+### `Array.prototype.sort` 
+
+Uses a merge sort in V8 when n > 10, which has an average complexity of O(n log n).
 
 ![Array.prototype.sort()](https://i.imgur.com/wwEEQHu.png)
 
