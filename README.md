@@ -11,7 +11,7 @@ A Node.js child process worker library for my London Node Meetup talk.
 
 const { createQueue } = require('enqueue-work');
 
-const WORKER_SCRIPT = 'sorter.js';
+const WORKER_SCRIPT = 'sorter.js'; // see test/sorter/index.js
 const WORKER_COUNT = 4;
 
 const queue = createQueue(WORKER_SCRIPT, WORKER_COUNT);
