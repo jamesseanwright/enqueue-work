@@ -20,7 +20,18 @@ const { result } = await queue.schedule({ filename: 'numbers-large.json' });
 
 ## Benchmarks
 
-Graphs coming soon, otherwise:
+### `Array.prototype.sort` (merge sort in V8 when n > 10)
+
+![Array.prototype.sort()](https://i.imgur.com/wwEEQHu.png)
+
+
+### React Server-Side Rendering (SSR)
+
+Please note that React 16 provides Node.js stream rendering, which will substantially reduce the time to first byte (TTFB) of your markup!
+
+![React SSR](https://i.imgur.com/Sy9xEM3.png)
+
+## Running locally
 
 * `git clone https://github.com/jamesseanwright/enqueue-work.git`
 * `cd enqueue-work`
