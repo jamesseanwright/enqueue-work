@@ -39,4 +39,9 @@ Please note that React 16 provides Node.js stream rendering, which will substant
 * `cd enqueue-work`
 * `nvm install`/`nvm use`
 * `npm i`
-* `npm run benchmark`
+
+Then you can run:
+
+* `npm test` - runs the unit and end-to-end tests
+* `npm run benchmark` - captures benchmarks for the sorter script based upon increasing worker pool sizes
+* `npm run react-ssr` - starts a HTTP server that renders a simple React app using `ReactDOMServer`
