@@ -1,6 +1,6 @@
 # Enqueue Work
 
-A Node.js child process worker library for my London Node Meetup talk.
+A Node.js child process worker library for my [London Node Meetup talk](https://www.youtube.com/watch?v=E-01bE2LjxM).
 
 **This is a proof of concept!** Do not use this library in production.
 
