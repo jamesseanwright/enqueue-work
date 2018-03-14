@@ -30,15 +30,15 @@ const runBenchmark = async workerCount => {
     return { workerCount, seconds, nanoseconds };
 };
 
-const runParallel = (length, predicate) => (
-    Promise.all(Array(length).fill(null).map(async () => await predicate()))
+const runParallel = (length, asyncFunc) => (
+    Promise.all(Array(length).fill(null).map(async () => await asyncFunc()))
 );
 
-const runSequentially = async (length, predicate) => {
+const runSequentially = async (length, asyncFunc) => {
     const results = Array(length);
 
     for (let i = 0; i < length; i++) {
-        results[i] = await predicate(i + 1); // one-based due to its consumption
+        results[i] = await asyncFunc(i + 1); // one-based due to its consumption
     }
 
     return results;
